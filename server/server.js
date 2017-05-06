@@ -28,7 +28,11 @@ app.use(express.static('./dist'));
 app.use('/', router);
 
 router.get('/', function (req, res) {
-    res.sendFile(path.resolve('client/index.html'));
+    console.log('using dirname instead');
+    console.log(__dirname + 'client/index.html')
+    console.log(res);
+
+    res.sendFile(__dirname + 'client/index.html');
 });
 
 router.get('/api', function(req, res) {
